@@ -1,13 +1,23 @@
 from pydantic import BaseModel
+import uuid
+from datetime import datetime
 
 class BookResponse(BaseModel):
-    id: int
+    uid: uuid.UUID
     name: str
     author: str
+    created_at: datetime
+    updated_at: datetime
+
+
+class BookCreateModel(BaseModel):
+    name: str
+    author: str  
+    price: int  
 
 
 
-class BookRequest(BaseModel):
+class BookUpdateModel(BaseModel):
 
     name: str
     author: str  
